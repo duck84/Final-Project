@@ -20,6 +20,7 @@ request.onload = function() {
     console.log(max_temp, min_temp, current_temp)
 
     setBackground();
+    addTempertureToHTML();
 };
 
 function setBackground(){
@@ -34,14 +35,15 @@ function setBackground(){
     }
 }
 
-//request.onload = function() {
-//    var data = JSON.parse(this.response, function (key,value) {
-//        if (key == "main"){
-//            console.log(value)
-//        }
-//        console.log(data['main'])
-//    }
-//)};
+function addTempertureToHTML(){
+    var currentDiv = document.getElementById('current');
+    var highDiv = document.getElementById('high');
+    var lowDiv = document.getElementById('low');
+
+    currentDiv.innerHTML += current_temp;
+    highDiv.innerHTML += max_temp;
+    lowDiv.innerHTML += min_temp;
+}
 
 request.send()
 
