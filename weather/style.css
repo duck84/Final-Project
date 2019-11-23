@@ -2,18 +2,26 @@
     font-family: "Rimouski";
 }
 
-.show_hide{
-    display:none;
-}
+
 body{
-    background-color: #293251;
+    /* background: linear-gradient(
+        to bottom,
+        #293251,
+        #9da4be); */
+   background: linear-gradient(
+    to bottom,
+    #293251,
+    #9da4be); 
+    background-color: #9da4be;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     width: auto;
 }
-
+.show_hide{
+    display:none;
+}
 .container{
     width: 300px;    
     background-color: #FFF;
@@ -113,7 +121,7 @@ body{
     padding: 0;
     color: #293251;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 1.3em;
 } 
 
 /* weather forecast container */
