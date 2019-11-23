@@ -5,63 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather </title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="Font/Rimouski.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- <div class="app-title"><p>Weather</p></div> -->
-        <div class ="current-date"></div>
-        <div class="notification"></div>
-        <div class="weather-container">
-            <div class="weather-icon"><img src="icons/unknown.png" alt=""></div>
-            <div class="temperature-value"><p>-°<span>C</span></p></div>
-            <div class="temperature-description"><p>-</p></div>
-            <div class="location"><p>-</p></div>
+        <div class="flex-container">
+            <form class="form_div">
+                    <div><h3>Enter the city</h3>
+                        <div class="cityname">
+                            <input placeholder="Ex: Mumbai" class="placeholder city" name="city" value="">
+                            <input type="submit" class="button submit" name="submit">
+                        </div>
+                    </div><br>
+                    <a class="f5 no-underline currentloc" href="#">
+                        <i class="fas fa-map-marker-alt pt3">
+                        </i>&nbsp;Get my location
+                    </a>
+            </form>
         </div>
-    </div>
-    <br>
-    <div class="flex-container">
-            <div>
-                <div class ="next-date"></div>
-                <div class="weather-forecast-container">
-                    <div class="weather-small-icon1"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
-                    <div class="temp-value1"><p>-°<span>C</span></p></div>
-                    <div class="temp-description1"><p>-</p></div>
-                </div>
+    <div class="show_hide" id="current">
+        <div class="container main">
+            <!-- <div class="app-title"><p>Weather</p></div> -->
+            <div class ="current-date"></div>
+            <div class="notification"></div>
+            <div class="weather-container">
+                <div class="weather-icon"><img src="icons/unknown.png" alt=""></div>
+                <div class="temperature-value"><p>-°<span>C</span></p></div>
+                <div class="temperature-description"><p>-</p></div>
+                <div class="location"><p>-</p></div>
             </div>
-            <div>
-                <div class ="third-date"></div>
-                <div class="weather-forecast-container">
-                    <div class="weather-small-icon2"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
-                    <div class="temp-value2"><p>-°<span>C</span></p></div>
-                    <div class="temp-description2"><p>-</p></div>
+        </div>
+        <br>
+        <div class="flex-container">
+                <div>
+                    <div class ="next-date"></div>
+                    <div class="weather-forecast-container">
+                        <div class="weather-small-icon1"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
+                        <div class="temp-value1"><p>-°<span>C</span></p></div>
+                        <div class="temp-description1"><p>-</p></div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div class ="fourth-date"></div>
-                <div class="weather-forecast-container">
-                    <div class="weather-small-icon3"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
-                    <div class="temp-value3"><p>-°<span>C</span></p></div>
-                    <div class="temp-description3"><p>-</p></div>
+                <div>
+                    <div class ="third-date"></div>
+                    <div class="weather-forecast-container">
+                        <div class="weather-small-icon2"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
+                        <div class="temp-value2"><p>-°<span>C</span></p></div>
+                        <div class="temp-description2"><p>-</p></div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div class ="fifth-date"></div>
-                <div class="weather-forecast-container">
-                    <div class="weather-small-icon4"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
-                    <div class="temp-value4"><p>-°<span>C</span></p></div>
-                    <div class="temp-description4"><p>-</p></div>
+                <div>
+                    <div class ="fourth-date"></div>
+                    <div class="weather-forecast-container">
+                        <div class="weather-small-icon3"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
+                        <div class="temp-value3"><p>-°<span>C</span></p></div>
+                        <div class="temp-description3"><p>-</p></div>
+                    </div>
                 </div>
-            </div> 
-            <div>
-                <div class ="sixth-date"></div>
-                <div class="weather-forecast-container">
-                    <div class="weather-small-icon"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
-                    <div class="temp-value"><p>-°<span>C</span></p></div>
-                    <div class="temp-description"><p>-</p></div>
-                </div>
-            </div> 
+                <div>
+                    <div class ="fifth-date"></div>
+                    <div class="weather-forecast-container">
+                        <div class="weather-small-icon4"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
+                        <div class="temp-value4"><p>-°<span>C</span></p></div>
+                        <div class="temp-description4"><p>-</p></div>
+                    </div>
+                </div> 
+                <div>
+                    <div class ="sixth-date"></div>
+                    <div class="weather-forecast-container">
+                        <div class="weather-small-icon"><img src="icons/unknown.png" alt="" style="width:30%; height:30%;"></div>
+                        <div class="temp-value"><p>-°<span>C</span></p></div>
+                        <div class="temp-description"><p>-</p></div>
+                    </div>
+                </div> 
+        </div>
     </div>
     <script src="app.js"></script>
 </body>

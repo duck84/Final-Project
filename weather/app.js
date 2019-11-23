@@ -1,3 +1,13 @@
+const currentlocation = document.querySelector(".currentloc");
+const togglediv = document.querySelector(".show_hide");
+const submit = document.querySelector(".submit");
+const cityname = document.querySelector(".city");
+submit.addEventListener("click", function(){
+    let variable = cityname.value;
+    let api= `http://api.openweathermap.org/data/2.5/weather?q=${variable}&appid=${key}`;
+    console.log(api);
+});
+
 //SELECT ELEMENTS for current weather
 const notificationElement = document.querySelector(".notification");
 const iconElement = document.querySelector(".weather-icon");
@@ -5,6 +15,7 @@ const tempElement = document.querySelector(".temperature-value p");
 const descElement = document.querySelector(".temperature-description p");
 const locationElement = document.querySelector(".location p");
 const dateElement = document.querySelector(".current-date");
+
 
 //select elements for date for weather forecast
 const NextdateElement = document.querySelector(".next-date");
@@ -74,18 +85,25 @@ sixthdateElement.innerHTML = "<p>" + dayNames[sixth.getDay()] + "<br>" + monthNa
 //API key
 const key= "6b3522dbeb4a7a626587c9a5272884fc";
 
-//check if user browser support geolocation
-if("geolocation" in navigator){
-    navigator.geolocation.getCurrentPosition(setPosition, showError);
-}else{
-    notificationElement.style.display="block";
-    notificationElement.innerHTML = "<p>Browser Doesn't support Geolocation.</p>";
-}
+currentlocation.addEventListener("click", function(){
+    getLocation();
+});
 
+//check if user browser support geolocation
+function getLocation(){
+    if("geolocation" in navigator){
+        navigator.geolocation.getCurrentPosition(setPosition, showError);
+        
+    }else{
+        notificationElement.style.display="block";
+        notificationElement.innerHTML = "<p>Browser Doesn't support Geolocation.</p>";
+    }
+}
 //set user's position
 function setPosition(position){
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
+    togglediv.style.display="block";
     getWeather(latitude, longitude);
     getNextDayWeather(latitude, longitude);
     getThirdDayWeather(latitude, longitude);
@@ -95,6 +113,7 @@ function setPosition(position){
 
 //show error if there is any
 function showError(error){
+    togglediv.style.display="block";
     notificationElement.style.display="block";
     notificationElement.innerHTML = `<p>${error.message}</p>`;
 }
