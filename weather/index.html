@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather </title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="Font/Rimouski.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
         <div class="flex-container">
@@ -16,7 +16,8 @@
                     <div><h3>Enter the city</h3>
                         <div class="cityname">
                             <input placeholder="Ex: Mumbai" class="placeholder city" name="city" value="">
-                            <input type="submit" class="button submit" name="submit">
+                            <!-- <input type="submit" class="button submit" name="submit" > -->
+                            <button type="button" class="btn btn-default button submit" id="submit">Submit</button>
                         </div>
                     </div><br>
                     <a class="f5 no-underline currentloc" href="#">

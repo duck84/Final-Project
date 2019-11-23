@@ -1,12 +1,9 @@
+//API key
+const key= "6b3522dbeb4a7a626587c9a5272884fc";
+
 const currentlocation = document.querySelector(".currentloc");
 const togglediv = document.querySelector(".show_hide");
 const submit = document.querySelector(".submit");
-const cityname = document.querySelector(".city");
-submit.addEventListener("click", function(){
-    let variable = cityname.value;
-    let api= `http://api.openweathermap.org/data/2.5/weather?q=${variable}&appid=${key}`;
-    console.log(api);
-});
 
 //SELECT ELEMENTS for current weather
 const notificationElement = document.querySelector(".notification");
@@ -82,8 +79,36 @@ var sixth = new Date();
 sixth.setDate(d.getDate()+5 );
 sixthdateElement.innerHTML = "<p>" + dayNames[sixth.getDay()] + "<br>" + monthNames[sixth.getMonth()] + " " + sixth.getDate()+ "</p>";
 
-//API key
-const key= "6b3522dbeb4a7a626587c9a5272884fc";
+$('#submit').on('click', function() {
+    let cityElement = document.querySelector(".city");
+    let cityvariable= cityElement.value;
+    let apit= `http://api.openweathermap.org/data/2.5/weather?q=${cityvariable}&appid=${key}`;
+    console.log(apit);
+    togglediv.style.display="block";
+    getweathercity(apit);
+});
+
+function getweathercity(api){
+    console.log(api);
+    fetch(api)
+    .then(function(response){
+        let data= response.json();
+        console.log(data);
+        return data;
+    })
+    .then(function(data){
+        weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+        weather.description = data.weather[0].description;
+        weather.iconId = data.weather[0].icon;
+        console.log(weather.iconId);
+        weather.city = data.name;
+        weather.country = data.sys.country;
+     }).then(function(){
+        displayWeather();
+        setBackground();
+     });
+ 
+}
 
 currentlocation.addEventListener("click", function(){
     getLocation();
@@ -103,6 +128,17 @@ function getLocation(){
 function setPosition(position){
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
+    //let latitude = 19.01;
+    //let longitude = 72.85;
+    togglediv.style.display="block";
+    getWeather(latitude, longitude);
+    getNextDayWeather(latitude, longitude);
+    getThirdDayWeather(latitude, longitude);
+    getFourthDayWeather(latitude, longitude);
+    getFifthDayWeather(latitude, longitude);
+}
+
+function setPositionDash(latitude, longitude){
     togglediv.style.display="block";
     getWeather(latitude, longitude);
     getNextDayWeather(latitude, longitude);
@@ -118,10 +154,12 @@ function showError(error){
     notificationElement.innerHTML = `<p>${error.message}</p>`;
 }
 
+
 //get current weather from api provider
-function getWeather(latitude, longitude){
+async function getWeather(latitude, longitude){
     let api= `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
     console.log(api);
+
     fetch(api)
         .then(function(response){
             let data= response.json();
