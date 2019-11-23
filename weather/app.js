@@ -3,6 +3,7 @@ const key= "6b3522dbeb4a7a626587c9a5272884fc";
 
 const currentlocation = document.querySelector(".currentloc");
 const togglediv = document.querySelector(".show_hide");
+const forecastdiv = document.querySelector(".forecast_hide");
 const submit = document.querySelector(".submit");
 
 //SELECT ELEMENTS for current weather
@@ -85,6 +86,7 @@ $('#submit').on('click', function() {
     let apit= `http://api.openweathermap.org/data/2.5/weather?q=${cityvariable}&appid=${key}`;
     console.log(apit);
     togglediv.style.display="block";
+    forecastdiv.style.display="none";
     getweathercity(apit);
 });
 
@@ -112,6 +114,7 @@ function getweathercity(api){
 
 currentlocation.addEventListener("click", function(){
     getLocation();
+    document.querySelector(".city").value="";
 });
 
 //check if user browser support geolocation
@@ -128,23 +131,17 @@ function getLocation(){
 function setPosition(position){
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    //let latitude = 19.01;
-    //let longitude = 72.85;
     togglediv.style.display="block";
-    getWeather(latitude, longitude);
-    getNextDayWeather(latitude, longitude);
-    getThirdDayWeather(latitude, longitude);
-    getFourthDayWeather(latitude, longitude);
-    getFifthDayWeather(latitude, longitude);
-}
-
-function setPositionDash(latitude, longitude){
-    togglediv.style.display="block";
-    getWeather(latitude, longitude);
-    getNextDayWeather(latitude, longitude);
-    getThirdDayWeather(latitude, longitude);
-    getFourthDayWeather(latitude, longitude);
-    getFifthDayWeather(latitude, longitude);
+    forecastdiv.style.display="flex";
+    let api= `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    console.log(api); 
+    getWeather(api);
+    let api1= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    console.log(api1);
+    getNextDayWeather(api1);
+    getThirdDayWeather(api1);
+    getFourthDayWeather(api1);
+    getFifthDayWeather(api1);
 }
 
 //show error if there is any
@@ -156,9 +153,8 @@ function showError(error){
 
 
 //get current weather from api provider
-async function getWeather(latitude, longitude){
-    let api= `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
-    console.log(api);
+async function getWeather(api){
+
 
     fetch(api)
         .then(function(response){
@@ -180,9 +176,8 @@ async function getWeather(latitude, longitude){
  }
 
  //display next day forecast weather
- function getNextDayWeather(latitude, longitude){
-    let api= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
-    console.log(api);
+ function getNextDayWeather(api){
+
     fetch(api)
     .then(function(response){
         let data= response.json();
@@ -209,8 +204,8 @@ async function getWeather(latitude, longitude){
  }
 
   //display third day forecast weather
-  function getThirdDayWeather(latitude, longitude){
-    let api= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
+  function getThirdDayWeather(api){
+    // let api= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
     fetch(api)
     .then(function(response){
         let data= response.json();
@@ -237,8 +232,8 @@ async function getWeather(latitude, longitude){
  }
 
   //display fourth day forecast weather
-  function getFourthDayWeather(latitude, longitude){
-    let api= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
+  function getFourthDayWeather(api){
+    // let api= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
     fetch(api)
     .then(function(response){
         let data= response.json();
@@ -265,8 +260,8 @@ async function getWeather(latitude, longitude){
  }
 
   //display fifth day forecast weather
-  function getFifthDayWeather(latitude, longitude){
-    let api= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
+  function getFifthDayWeather(api){
+    // let api= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
     fetch(api)
     .then(function(response){
         let data= response.json();
