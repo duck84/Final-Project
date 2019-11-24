@@ -139,10 +139,10 @@ body{
     border-radius: 10px;
   }
 
-  .temp-value1, .temp-value2, .temp-value3, .temp-value4{
+  .temp-value1, .temp-value2, .temp-value3, .temp-value4, .temp-value5{
     font-weight: bolder;
   }
-  .temp-description1,.temp-description2,.temp-description3,.temp-description4{
+  .temp-description1,.temp-description2,.temp-description3,.temp-description4, .temp-description5{
     font-size: 0.8em;
   }
   .weather-forecast-container{

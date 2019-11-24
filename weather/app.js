@@ -1,6 +1,7 @@
 //API key
 const key= "6b3522dbeb4a7a626587c9a5272884fc";
 
+//select elements for form div
 const currentlocation = document.querySelector(".currentloc");
 const togglediv = document.querySelector(".show_hide");
 const forecastdiv = document.querySelector(".forecast_hide");
@@ -42,6 +43,11 @@ const fifthdayIconElement = document.querySelector(".weather-small-icon4");
 const fifthdayTempElement = document.querySelector(".temp-value4 p");
 const fifthdayDescElement = document.querySelector(".temp-description4 p");
 
+//select element for sixth day forecast
+const sixthdayIconElement = document.querySelector(".weather-small-icon5");
+const sixthdayTempElement = document.querySelector(".temp-value5 p");
+const sixthdayDescElement = document.querySelector(".temp-description5 p");
+
 //App Data
 const weather = {};
 weather.temperature = {
@@ -80,6 +86,7 @@ var sixth = new Date();
 sixth.setDate(d.getDate()+5 );
 sixthdateElement.innerHTML = "<p>" + dayNames[sixth.getDay()] + "<br>" + monthNames[sixth.getMonth()] + " " + sixth.getDate()+ "</p>";
 
+//get the form input on click of submit button
 $('#submit').on('click', function() {
     let cityElement = document.querySelector(".city");
     let cityvariable= cityElement.value;
@@ -90,6 +97,7 @@ $('#submit').on('click', function() {
     getweathercity(apit);
 });
 
+// display current weather of that city from the api provider
 function getweathercity(api){
     console.log(api);
     fetch(api)
@@ -142,6 +150,7 @@ function setPosition(position){
     getThirdDayWeather(api1);
     getFourthDayWeather(api1);
     getFifthDayWeather(api1);
+    getSixthDayWeather(api1);
 }
 
 //show error if there is any
@@ -153,9 +162,7 @@ function showError(error){
 
 
 //get current weather from api provider
-async function getWeather(api){
-
-
+function getWeather(api){
     fetch(api)
         .then(function(response){
             let data= response.json();
@@ -165,7 +172,6 @@ async function getWeather(api){
             weather.temperature.value = Math.floor(data.main.temp - KELVIN);
             weather.description = data.weather[0].description;
             weather.iconId = data.weather[0].icon;
-            console.log(weather.iconId);
             weather.city = data.name;
             weather.country = data.sys.country;
          }).then(function(){
@@ -287,6 +293,31 @@ async function getWeather(api){
 
  }
 
+  //display fifth day forecast weather
+  function getSixthDayWeather(api){
+    // let api= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    fetch(api)
+    .then(function(response){
+        let data= response.json();
+        return data;
+    })
+    .then(function(data){
+        let temp_min= Math.min(data.list[32].main.temp_min, data.list[33].main.temp_min, data.list[34].main.temp_min,
+                                data.list[35].main.temp_min, data.list[36].main.temp_min, data.list[37].main.temp_min,
+                                data.list[38].main.temp_min, data.list[39].main.temp_min);
+        weather.temperature.min = Math.floor(temp_min- KELVIN);
+        let temp_max= Math.max(data.list[32].main.temp_max, data.list[33].main.temp_max, data.list[34].main.temp_max,
+                                data.list[35].main.temp_max, data.list[36].main.temp_max, data.list[37].main.temp_max,
+                                data.list[38].main.temp_max, data.list[39].main.temp_max);
+        weather.temperature.max = Math.floor(temp_max- KELVIN);
+        weather.description = data.list[32].weather[0].description;
+        weather.iconId = data.list[32].weather[0].icon;
+     }).then(function(){
+        displaySixthDayWeather();
+     });
+
+ }
+
  //display current weather to UI
 function displayWeather(){
     iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
@@ -321,6 +352,13 @@ function displayFifthDayWeather(){
     fifthdayIconElement.innerHTML = `<img src="icons/${weather.iconId}.png" width=30% height=30%/>`;
     fifthdayTempElement.innerHTML = `${weather.temperature.min}°<span>C</span>/${weather.temperature.max}°<span>C</span>`;
     fifthdayDescElement.innerHTML = weather.description;
+}
+
+//display sixth day weather to UI
+function displaySixthDayWeather(){
+    sixthdayIconElement.innerHTML = `<img src="icons/${weather.iconId}.png" width=30% height=30%/>`;
+    sixthdayTempElement.innerHTML = `${weather.temperature.min}°<span>C</span>/${weather.temperature.max}°<span>C</span>`;
+    sixthdayDescElement.innerHTML = weather.description;
 }
 
 //celsius to fahrenheit conversion
