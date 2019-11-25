@@ -99,17 +99,32 @@ $('#submit').on('click', function() {
     let apit= `http://api.openweathermap.org/data/2.5/weather?q=${cityvariable}&appid=${key}`;
     console.log(apit);
     togglediv.style.display="block";
-    notificationElement.style.display="none";
+    
     dateElement.style.display="block";
     locationElement.style.display="block";
-    locationElement.innerHTML=`-`;
     forecastdiv.style.display="none";
-
+    notificationElement.style.display="none";
+    iconElement.innerHTML = `<img src="icons/unknown.png" alt=""/>`;
+    tempElement.innerHTML = `-°<span>C</span>`;
+    descElement.innerHTML = `<p>-</p>`;
+    temp_minElement.innerHTML = `-°<span>C</span>`;
+    temp_maxElement.innerHTML = `-°<span>C</span>`;
+    humidityElement.innerHTML = `-`;
+    pressureElement.innerHTML = `-`;
+    windElement.innerHTML = `-`;
+    if(cityvariable==""){
+        dateElement.style.display="none";
+        locationElement.style.display="none";
+        notificationElement.style.display="block";
+        notificationElement.innerHTML=`<p>Provide a valid address</p>`;
+    }else{
     getweathercity(apit);
+    }
 });
 
 // display current weather of that city from the api provider
 function getweathercity(api){
+     
     console.log(api);
     fetch(api)
     .then(function(response){
