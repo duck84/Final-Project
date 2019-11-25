@@ -93,7 +93,8 @@ sixth.setDate(d.getDate()+5 );
 sixthdateElement.innerHTML = "<p>" + dayNames[sixth.getDay()] + "<br>" + monthNames[sixth.getMonth()] + " " + sixth.getDate()+ "</p>";
 
 //get the form input on click of submit button
-$('#submit').on('click', function() {
+
+$('#submit').click(function() {
     let cityElement = document.querySelector(".city");
     let cityvariable= cityElement.value;
     let apit= `http://api.openweathermap.org/data/2.5/weather?q=${cityvariable}&appid=${key}`;
@@ -112,15 +113,22 @@ $('#submit').on('click', function() {
     humidityElement.innerHTML = `-`;
     pressureElement.innerHTML = `-`;
     windElement.innerHTML = `-`;
-    if(cityvariable==""){
-        dateElement.style.display="none";
+    $.ajax({
+        type: "GET",
+        url: apit,
+        datatype: "json",
+        error: function(data) {
+                    dateElement.style.display="none";
         locationElement.style.display="none";
         notificationElement.style.display="block";
         notificationElement.innerHTML=`<p>Provide a valid address</p>`;
-    }else{
-    getweathercity(apit);
-    }
+        },
+        success: function(data){
+            getweathercity(apit);
+        }
+    })
 });
+
 
 // display current weather of that city from the api provider
 function getweathercity(api){
