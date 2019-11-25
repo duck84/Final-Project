@@ -20,6 +20,7 @@ const temp_minElement = document.querySelector(".temperature-min p");
 const temp_maxElement = document.querySelector(".temperature-max p");
 const humidityElement = document.querySelector(".humidity p");
 const pressureElement = document.querySelector(".pressure p");
+const windElement = document.querySelector(".wind p");
 
 //select elements for date for weather forecast
 const NextdateElement = document.querySelector(".next-date");
@@ -181,12 +182,10 @@ function getWeather(api){
             weather.country = data.sys.country;
 
             weather.temperature.min =  Math.floor(data.main.temp_min - KELVIN);
-            console.log(data.main.temp_min);
-            console.log("print min temp"+ weather.temperature.min);
             weather.temperature.max =  Math.floor(data.main.temp_max - KELVIN);
             weather.humidity = data.main.humidity;
-            console.log(weather.humidity);
             weather.pressure = data.main.pressure;
+            weather.wind = data.wind.speed;
          }).then(function(){
             displayWeather();
             setBackground();
@@ -334,14 +333,15 @@ function getWeather(api){
  //display current weather to UI
 function displayWeather(){
     iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
-    tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+    tempElement.innerHTML = `<span>Feels like</span> ${weather.temperature.value}°<span>C</span>`;
     descElement.innerHTML = weather.description;
     locationElement.innerHTML = `${weather.city}, ${weather.country}`;
 
-    temp_minElement.innerHTML = `Min Temperatue: ${weather.temperature.min}°<span>C</span>`;
-    temp_maxElement.innerHTML = `Max temperature: ${weather.temperature.max}°<span>C</span>`;
+    temp_minElement.innerHTML = `Min Temperature: ${weather.temperature.min}°<span>C</span>`;
+    temp_maxElement.innerHTML = `Max Temperature: ${weather.temperature.max}°<span>C</span>`;
     humidityElement.innerHTML = `Humidity: ${weather.humidity}%`;
-    pressureElement.innerHTML = `Pressure: ${weather.pressure}hpa`;
+    pressureElement.innerHTML = `Pressure: ${weather.pressure} hpa`;
+    windElement.innerHTML = `Wind: ${weather.wind} mph`;
 
 }
 
@@ -393,10 +393,10 @@ tempElement.addEventListener("click", function(){
         let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
         fahrenheit = Math.floor(fahrenheit);
 
-        tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
+        tempElement.innerHTML = `<span>Feels like</span> ${fahrenheit}°<span>F</span>`;
         weather.temperature.unit = "fahrenheit";
     }else{
-        tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+        tempElement.innerHTML = `<span>Feels like</span> ${weather.temperature.value}°<span>C</span>`;
         weather.temperature.unit ="celsius";
     }
 });

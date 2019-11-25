@@ -111,8 +111,9 @@ body{
     color: #293251;
     font-size: 0.5em;
 }
-
-
+#feels{
+    font-size:0.3em;
+}
 .temperature-description p{
     padding: 8px;
     margin: 0;
@@ -129,6 +130,12 @@ body{
     font-size: 1.3em;
 } 
 
+/* temp min/max humidity and pressure div */
+.temperature-min p, .temperature-max p, .humidity p, .pressure p, .wind p{
+    font-size :1.2em;
+    color: #293251;
+    padding-top:7px;
+}
 
 /* weather forecast container */
 .flex-container {
