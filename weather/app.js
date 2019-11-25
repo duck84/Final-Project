@@ -116,9 +116,14 @@ function getweathercity(api){
         weather.temperature.value = Math.floor(data.main.temp - KELVIN);
         weather.description = data.weather[0].description;
         weather.iconId = data.weather[0].icon;
-        console.log(weather.iconId);
         weather.city = data.name;
         weather.country = data.sys.country;
+
+        weather.temperature.min =  Math.floor(data.main.temp_min - KELVIN);
+        weather.temperature.max =  Math.floor(data.main.temp_max - KELVIN);
+        weather.humidity = data.main.humidity;
+        weather.pressure = data.main.pressure;
+        weather.wind = data.wind.speed;
      }).then(function(){
         displayWeather();
         setBackground();
@@ -212,9 +217,6 @@ function getWeather(api){
         weather.temperature.max = Math.floor(temp_max- KELVIN);
         weather.description = data.list[0].weather[0].description;
         weather.iconId = data.list[0].weather[0].icon;
-        console.log(weather.description);
-        console.log(weather.temperature.min);
-        console.log(weather.temperature.max);
      }).then(function(){
         displayNextDayWeather();
      });
@@ -234,15 +236,14 @@ function getWeather(api){
                                 data.list[11].main.temp_min, data.list[12].main.temp_min, data.list[13].main.temp_min,
                                 data.list[14].main.temp_min, data.list[15].main.temp_min);
         weather.temperature.min = Math.floor(temp_min- KELVIN);
+
         let temp_max= Math.max(data.list[8].main.temp_max, data.list[9].main.temp_max, data.list[10].main.temp_max,
                                 data.list[11].main.temp_max, data.list[12].main.temp_max, data.list[13].main.temp_max,
                                 data.list[14].main.temp_max, data.list[15].main.temp_max);
         weather.temperature.max = Math.floor(temp_max- KELVIN);
+        
         weather.description = data.list[8].weather[0].description;
         weather.iconId = data.list[8].weather[0].icon;
-        console.log(weather.description);
-        console.log(weather.temperature.min);
-        console.log(weather.temperature.max);
      }).then(function(){
         displaythirdDayWeather();
      });
@@ -268,9 +269,6 @@ function getWeather(api){
         weather.temperature.max = Math.floor(temp_max- KELVIN);
         weather.description = data.list[16].weather[0].description;
         weather.iconId = data.list[16].weather[0].icon;
-        console.log(weather.description);
-        console.log(weather.temperature.min);
-        console.log(weather.temperature.max);
      }).then(function(){
         displayFourthDayWeather();
      });
@@ -296,9 +294,6 @@ function getWeather(api){
         weather.temperature.max = Math.floor(temp_max- KELVIN);
         weather.description = data.list[24].weather[0].description;
         weather.iconId = data.list[24].weather[0].icon;
-        console.log(weather.description);
-        console.log(weather.temperature.min);
-        console.log(weather.temperature.max);
      }).then(function(){
         displayFifthDayWeather();
      });
