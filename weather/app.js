@@ -15,6 +15,11 @@ const descElement = document.querySelector(".temperature-description p");
 const locationElement = document.querySelector(".location p");
 const dateElement = document.querySelector(".current-date");
 
+//SELECT ELEMENTS for current weather min/max temperature
+const temp_minElement = document.querySelector(".temperature-min p");
+const temp_maxElement = document.querySelector(".temperature-max p");
+const humidityElement = document.querySelector(".humidity p");
+const pressureElement = document.querySelector(".pressure p");
 
 //select elements for date for weather forecast
 const NextdateElement = document.querySelector(".next-date");
@@ -174,6 +179,14 @@ function getWeather(api){
             weather.iconId = data.weather[0].icon;
             weather.city = data.name;
             weather.country = data.sys.country;
+
+            weather.temperature.min =  Math.floor(data.main.temp_min - KELVIN);
+            console.log(data.main.temp_min);
+            console.log("print min temp"+ weather.temperature.min);
+            weather.temperature.max =  Math.floor(data.main.temp_max - KELVIN);
+            weather.humidity = data.main.humidity;
+            console.log(weather.humidity);
+            weather.pressure = data.main.pressure;
          }).then(function(){
             displayWeather();
             setBackground();
@@ -324,6 +337,12 @@ function displayWeather(){
     tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
     descElement.innerHTML = weather.description;
     locationElement.innerHTML = `${weather.city}, ${weather.country}`;
+
+    temp_minElement.innerHTML = `Min Temperatue: ${weather.temperature.min}°<span>C</span>`;
+    temp_maxElement.innerHTML = `Max temperature: ${weather.temperature.max}°<span>C</span>`;
+    humidityElement.innerHTML = `Humidity: ${weather.humidity}%`;
+    pressureElement.innerHTML = `Pressure: ${weather.pressure}hpa`;
+
 }
 
 //display next day weather to UI

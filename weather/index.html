@@ -27,15 +27,24 @@
             </form>
         </div>
     <div class="show_hide" id="current">
-        <div class="container main">
-            <!-- <div class="app-title"><p>Weather</p></div> -->
-            <div class ="current-date"></div>
-            <div class="notification"></div>
-            <div class="weather-container">
-                <div class="weather-icon"><img src="icons/unknown.png" alt=""></div>
-                <div class="temperature-value"><p>-°<span>C</span></p></div>
-                <div class="temperature-description"><p>-</p></div>
-                <div class="location"><p>-</p></div>
+        <div class="container main" style="justify-content:center;">
+            <div style="display:block;">
+                <div class ="current-date"></div>
+                <div class="notification"></div>
+                <div class="flex-container" id="flex-main">
+                <div class="weather-container">
+                    <div class="weather-icon"><img src="icons/unknown.png" alt=""></div>
+                    <div class="temperature-value"><p>-°<span>C</span></p></div>
+                    <div class="temperature-description"><p>-</p></div>
+                    <div class="location"><p>-</p></div>
+                </div>
+                <div class="weather-container">
+                        <div class="temperature-min"><p>-°<span>C</span></p></div>
+                        <div class="temperature-max"><p>-°<span>C</span></p></div>
+                        <div class="humidity"><p>-</p></div>
+                        <div class="pressure"><p>-</p></div>
+                    </div>
+                    </div>
             </div>
         </div>
         <br>
