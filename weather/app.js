@@ -99,7 +99,12 @@ $('#submit').on('click', function() {
     let apit= `http://api.openweathermap.org/data/2.5/weather?q=${cityvariable}&appid=${key}`;
     console.log(apit);
     togglediv.style.display="block";
+    notificationElement.style.display="none";
+    dateElement.style.display="block";
+    locationElement.style.display="block";
+    locationElement.innerHTML=`-`;
     forecastdiv.style.display="none";
+
     getweathercity(apit);
 });
 
@@ -134,6 +139,7 @@ function getweathercity(api){
 currentlocation.addEventListener("click", function(){
     getLocation();
     document.querySelector(".city").value="";
+    notificationElement.style.display="none";
 });
 
 //check if user browser support geolocation
@@ -151,6 +157,8 @@ function setPosition(position){
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     togglediv.style.display="block";
+    dateElement.style.display="block";
+    locationElement.style.display="block";
     forecastdiv.style.display="flex";
     let api= `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
     console.log(api); 
@@ -167,8 +175,22 @@ function setPosition(position){
 //show error if there is any
 function showError(error){
     togglediv.style.display="block";
+    dateElement.style.display="none";
     notificationElement.style.display="block";
     notificationElement.innerHTML = `<p>${error.message}</p>`;
+    iconElement.innerHTML = `<img src="icons/unknown.png" alt=""/>`;
+    tempElement.innerHTML = `-°<span>C</span>`;
+    descElement.innerHTML = `<p>-</p>`;
+    locationElement.style.display="none";
+
+    temp_minElement.innerHTML = `-°<span>C</span>`;
+    temp_maxElement.innerHTML = `-°<span>C</span>`;
+    humidityElement.innerHTML = `-`;
+    pressureElement.innerHTML = `-`;
+    windElement.innerHTML = `-`;
+
+    forecastdiv.style.display="none";
+
 }
 
 
