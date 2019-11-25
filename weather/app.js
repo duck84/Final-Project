@@ -98,7 +98,7 @@ $('#submit').click(function() {
     let cityElement = document.querySelector(".city");
     let cityvariable= cityElement.value;
     let apit= `http://api.openweathermap.org/data/2.5/weather?q=${cityvariable}&appid=${key}`;
-    console.log(apit);
+    // console.log(apit);
     togglediv.style.display="block";
     
     dateElement.style.display="block";
@@ -133,11 +133,11 @@ $('#submit').click(function() {
 // display current weather of that city from the api provider
 function getweathercity(api){
      
-    console.log(api);
+    // console.log(api);
     fetch(api)
     .then(function(response){
         let data= response.json();
-        console.log(data);
+        // console.log(data);
         return data;
     })
     .then(function(data){
@@ -184,10 +184,10 @@ function setPosition(position){
     locationElement.style.display="block";
     forecastdiv.style.display="flex";
     let api= `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
-    console.log(api); 
+    // console.log(api); 
     getWeather(api);
     let api1= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
-    console.log(api1);
+    // console.log(api1);
     getNextDayWeather(api1);
     getThirdDayWeather(api1);
     getFourthDayWeather(api1);
