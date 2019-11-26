@@ -1,11 +1,14 @@
 body{
     background-image: url('../img/stocks.jpg');
+    color: white;
 }
 
 .stock{
     width: 40%;    
-    background-color: #FFF;
-    opacity: .95;
+    background-color: rgb(24, 23, 23);
+    color: white;
+    
+    opacity: .90;
     
     display: block;
     
@@ -14,4 +17,35 @@ body{
     
     border-radius: 10px;
     padding-bottom : 50px;
+}
+
+.form_div{
+    background-color: rgb(24, 23, 23);
+    margin-top:40px;
+    width:25%;
+    padding:10px;
+    text-align: center;
+    border-radius: 10px;
+    opacity:0.8;
+  
+}
+
+.placeholder{
+    padding:10px;
+    width : 50%;
+    font-size: large;
+}
+
+.submit{
+    background-color:#293251;
+    color:white;
+    padding:10px;
+    font-size: large;
+    cursor: pointer; 
+    border-radius: 10px;
+}
+
+.stocktext{
+    color:white;
+    font-size:1.2em;
 }

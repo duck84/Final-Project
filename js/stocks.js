@@ -13,15 +13,24 @@ window.onload = function () {
     var dataSeries = { type: "line" };
 
     var chart = new CanvasJS.Chart("chartContainer", {
+        backgroundColor: "transparent",
+        
+        fillOpacity: .10,
         animationEnabled: true,
         zoomEnabled: true,
         title: {
+            fontColor: 'white',
             text: "Price"
         },
         axisY: {
+            labelFontColor: 'white',
             includeZero: false
         },
+        axisX:{
+            labelFontColor: "white",
+          },
         data: [{
+            fontColor: 'white',
             type: 'line',
             dataPoints: dataPoints
         }]
