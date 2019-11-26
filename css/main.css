@@ -1,19 +1,59 @@
-body, html{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+html {
     height: 100%;
+}
+
+body{
+    height: 100%;
+}
+
+.container-fluid{
+    height: 100%;
+    overflow-y: hidden; /* don't show content that exceeds my height */
+}
+
+#weather {
+    background-color: #e6e8ec;
+    height: 45%;
     width: auto;
 }
 
-
-.col-sm-4{
-    background-color:black;
-    opacity: .6;
-    color: white;
-    border-radius: 10px;
+#news {
+    background-color: #f5f6f8;
+    height: 45%;
+    width: auto;
 }
 
-h2 {
-    text-align: center;
+#stocks {
+    background-color: #e6e8ec;
+    height: 10%;
+    width: auto;
+}
+
+.marquee {
+    line-height: 50px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    color: black;
+    animation: marquee 30s linear infinite;
+    animation-play-state: running;
+}
+
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+.negative{
+    color: red;
+}
+
+.positive{
+    color: green;
 }

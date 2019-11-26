@@ -1,0 +1,17 @@
+body{
+    background-image: url('../img/stocks.jpg');
+}
+
+.stock{
+    width: 40%;    
+    background-color: #FFF;
+    opacity: .95;
+    
+    display: block;
+    
+    margin: 0 auto;
+    margin-top: 20px;
+    
+    border-radius: 10px;
+    padding-bottom : 50px;
+}
