@@ -121,7 +121,7 @@ $('#submit').click(function() {
                     dateElement.style.display="none";
         locationElement.style.display="none";
         notificationElement.style.display="block";
-        notificationElement.innerHTML=`<p>Provide a valid address</p>`;
+        notificationElement.innerHTML=`<p>Provide a valid city</p>`;
         },
         success: function(data){
             getweathercity(apit);
