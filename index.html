@@ -2,60 +2,49 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./css/main.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class="row">
-            <div class="col-sm-4">
-                <h2>
-                    Weather
-                </h2>
-                <div id="temp">
-                    <div class="row">
-                        <div id="current" class="col-sm-4">Current: </div>
-                        <div id="high" class="col-sm-4">High: </div>
-                        <div id="low" class="col-sm-4">Low: </div>
-                    </div>
-                </div>
-                <p>
-                    This is a test to see how much the screen fills up when
-                    I use a lot of text. I should find the automatic text generator
-                    to fill this in with the quick brown fox jumped over the fence.
-                </p>
+<!--[if gt IE 8]><!-->
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="container-fluid">
+        <div class="row" id="weather">
+            <div class="col-md-12">
+                TODO: Add Weather Section <br>
+                Onclick this loads the weather page
             </div>
-            <div class="col-sm-4" style="visibility: hidden;"></div>
-            <div class="col-sm-4">
-                <h2>
-                    Stock Prices
-                </h2>
-                <div id="stock-prices">
-                    <div class="row">
-                        <div id="stock1" class="col-sm-4">
-                            <div id="name1"></div>
-                            <div id="price1"></div>
-                        </div>
-                        <div id="stock2" class="col-sm-4">
-                            <div id="name2"></div>
-                            <div id="price2"></div>
-                        </div>
-                        <div id="stock3" class="col-sm-4">
-                            <div id="name3"></div>
-                            <div id="price3"></div>
-                        </div>
-                    </div>
+        </div>
+        <div class="row" id="news">
+            <div class="col-md-12">
+                TODO: Add News Section
+            </div>
+        </div>
+        <div class="row" id="stocks">
+            <div class="col-md-12">
+                <div class="marquee">
+                    <p id="ticker-text">
+                    </p>
                 </div>
             </div>
         </div>
-        
-        <script src="./js/main.js" async defer></script>
-        <script src="./js/stock.js" async defer></script>
-    </body>
+    </div>
+
+    <script src='./js/main.js' asynch defer></script>
+    <script src="./js/ticker.js" async defer></script>
+
+</body>
+
 </html>
