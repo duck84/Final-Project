@@ -1,8 +1,43 @@
+.navbar
+{ 
+    background:#0025f9;
+    opacity: 0.8;
+}
+
+.nav-link , .navbar-brand
+{
+    color: #f4f4f4;
+    cursor: pointer;
+}
+
+.nav-link
+{ 
+    margin-right: 1em !important;
+}
+.navbar-brand:hover
+{
+    background: #f4f4f4; 
+    color: #1100f9; 
+}
+.nav-link:hover
+{ 
+    background: #f4f4f4; 
+    color: #1100f9; 
+}
+
+.navbar-collapse
+{ 
+    justify-content: flex-left;
+}
+
+.navbar-toggler
+{ 
+    background:#fff !important;
+}
 .news
 {
     margin: 4em 0;
     position: relative; 
-
 }
 .news h1
 {
