@@ -1,0 +1,36 @@
+.news
+{
+    margin: 4em 0;
+    position: relative; 
+
+}
+.news h1
+{
+    color: #1100f9;
+    margin: 2em; 
+}
+.border
+{
+    background-color: white;
+    opacity: 0.7;
+}
+.news .card{
+    box-shadow: 0 0 20px #ccc;
+    height:35em;
+}
+.news .card img
+{
+    width: 100%;
+    height: 12em;
+}
+.news .card-title
+{
+    color:#1100f9;
+    
+}
+.news .card-body
+{
+    padding: 1em;
+}
+
+ 
