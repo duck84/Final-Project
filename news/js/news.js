@@ -86,15 +86,7 @@ request.onload= function(){
         description8 = sources[8]['description']
         url8 = sources[8]['url']
         urlImage8 = sources[8]['urlToImage']
-        console.log(id8,name8,description8)
-
-        id9= sources[9]['source']['id']
-        name9 = sources[9]['source']['name']
-        title9 = sources[9]['title']
-        description9 = sources[9]['description']
-        url9 = sources[9]['url']
-        urlImage9 = sources[9]['urlToImage']
-        console.log(id9,name9,description9)
+        console.log(id8,name8,description8);
 
    addNewsToHTML();
 };
