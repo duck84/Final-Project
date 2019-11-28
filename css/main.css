@@ -4,7 +4,7 @@ html {
 
 body{
     height: 100%;
-    background-image: url("/img/homepage_background.jpg");
+    background-image: url("../bckgrnd5.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -22,25 +22,27 @@ body{
 }
 #background
 {
-    height: 80%;
+    height: 83%;
 }
 .content
 {
     position: absolute;
-    top: 20%;
+    top: 30%;
     margin: auto;
     padding: 2em;
     
 }
 .content h5
 {
-    color:#0025f9 ;
+    color:rgb(117, 87, 32) ;
     font-size: 35px;
 }
 .content p
 {
-    color:black;
+    color:rgba(48, 45, 45, 0.521);
     font-size: 20px;
+    font-weight: bold;
+    font-style: oblique;
     width: 80%;
     line-height: 1.5;
 }
@@ -61,9 +63,9 @@ body{
 #stocks 
 {
     background-color: #e6e8ec;
-    height: 10%;
+    height: 7%;
     width: auto;
-    opacity: 0.8;
+    cursor: pointer;
 }
 .marquee {
     line-height: 50px;
@@ -95,7 +97,7 @@ body{
 }
 .navbar
 { 
-    background: #0025f9;
+    background: black;
     opacity: 0.6;
 }
 
