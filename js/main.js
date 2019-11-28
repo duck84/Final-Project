@@ -7,6 +7,10 @@ weather.addEventListener('click', function(event) {
     window.location.href = './weather/index.html';
 }) 
 
+news.addEventListener('click',function(event){
+    window.location.href ='./news/index.html'
+})
+
 stocks.addEventListener('click', function(event){
     window.location.href = "./stocks.html";
 })

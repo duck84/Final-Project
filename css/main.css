@@ -4,6 +4,10 @@ html {
 
 body{
     height: 100%;
+    background-image: url("/img/homepage_background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 .container-fluid{
@@ -11,24 +15,56 @@ body{
     overflow-y: hidden; /* don't show content that exceeds my height */
 }
 
-#weather {
-    background-color: #e6e8ec;
+#weather 
+{
     height: 45%;
     width: auto;
 }
-
-#news {
-    background-color: #f5f6f8;
+#background
+{
+    height: 80%;
+}
+.content
+{
+    position: absolute;
+    top: 20%;
+    margin: auto;
+    padding: 2em;
+    
+}
+.content h5
+{
+    color:#0025f9 ;
+    font-size: 35px;
+}
+.content p
+{
+    color:black;
+    font-size: 20px;
+    width: 80%;
+    line-height: 1.5;
+}
+.content .card
+{
+    opacity: 0.8;
+    box-shadow: 0 0 20px #fff;
+}
+#navbar
+{
+    height: 10%;
+}
+#news 
+{
     height: 45%;
     width: auto;
 }
-
-#stocks {
+#stocks 
+{
     background-color: #e6e8ec;
     height: 10%;
     width: auto;
+    opacity: 0.8;
 }
-
 .marquee {
     line-height: 50px;
     color: white;
@@ -56,4 +92,40 @@ body{
 
 .positive{
     color: green;
+}
+.navbar
+{ 
+    background: #0025f9;
+    opacity: 0.6;
+}
+
+.nav-link , .navbar-brand
+{
+    color: #f4f4f4;
+    cursor: pointer;
+}
+
+.nav-link
+{ 
+    margin-right: 1em !important;
+}
+.navbar-brand:hover
+{
+    background: #f4f4f4; 
+    color: #1100f9; 
+}
+.nav-link:hover
+{ 
+    background: #f4f4f4; 
+    color: #1100f9; 
+}
+
+.navbar-collapse
+{ 
+    justify-content: flex-end;
+}
+
+.navbar-toggler
+{ 
+    background:#fff !important;
 }
