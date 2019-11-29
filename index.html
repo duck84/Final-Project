@@ -14,20 +14,22 @@
 <body>
     <div class="container-fluid">
             <div id="navbar">
-                <nav class="navbar navbar-expand-lg fixed-top">
+                <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-expand-md navbar-expand-xl fixed-top">
 
                     <a class="navbar-brand" href="index.html"><img src="logo.png" style="height:40px;width:40px;" alt=""><span style="font-weight: bolder; font-style: italic;color:rgb(207, 166, 89) ;">Omnirds</span></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse">  
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">  
+                    <div class="animated-icon"><span></span><span></span><span></span></div>
                     </button>
-                    <div class="collapse navbar-collapse">    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">    
                     <ul class="navbar-nav mr-1">
                     <li class="nav-item nav-link" id="weather"><span style="font-weight: bolder;">Weather<span></li> 
                     <li class="nav-item nav-link" id="news"><span style="font-weight: bolder;">News</span></li> 
                     <li class="nav-item"> 
-                    <a class="nav-link " data-value="stocks" href="stocks.html"><span style="font-weight: bolder;">Stock</span></a>
+                    <a class="nav-link" data-value="stocks" href="stocks.html"><span style="font-weight: bolder;">Stock</span></a>
                     </li> 
                     <li class="nav-item"> 
-                    <a class="nav-link " data-value="aboutus" href="aboutus.html"><span style="font-weight: bolder;">About</span></a>
+                    <a class="nav-link" data-value="aboutus" href="aboutus.html"><span style="font-weight: bolder;">About</span></a>
                 </li>     
                 </ul> 
                     </div>
@@ -56,6 +58,12 @@
 
     <script src='./js/main.js' asynch defer></script>
     <script src="./js/ticker.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
 </body>
 
