@@ -9,15 +9,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Stocks</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/stocks.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <script src="./js/stocks.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 </head>
 
 <body>
@@ -53,12 +52,14 @@
         </div>
     </div>
     <div class="container" style="margin: auto; width: 30%;">
-            <form class="form_div" style="width: 100%;">
+            <form class="form_div" style="width: 100%">
                     <div><h3 class="stocktext">Enter Stock Ticker</h3>
                         <div class="stock-name">
-                            <input placeholder="Ex: F" class="placeholder stock" name="stock" value="">
+                            <input placeholder="Ex: F" onkeydown = "if (event.keyCode == 13)
+                            document.getElementById('submit').click()"  
+                            class="placeholder stock" name="stock" value="">
                             <!-- <input type="submit" class="button submit" name="submit" > -->
-                            <button type="button" class="btn btn-default button submit" id="submit">Submit</button>
+                            <button type="button" onclick="changeStock()" class="btn btn-default button submit" id="submit">Submit</button>
                         </div>
                     </div><br>
             </form>
@@ -68,8 +69,8 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+    <script src="./js/stocks.js"></script>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 </body>
 
 </html>

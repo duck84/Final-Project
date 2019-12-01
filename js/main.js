@@ -11,10 +11,6 @@ news.addEventListener('click',function(event){
     window.location.href ='./news/index.html'
 })
 
-stocks.addEventListener('click', function(event){
-    window.location.href = "./stocks.html";
-})
-
 ticker.addEventListener("mouseover", function(event) {
     event.target.style.animationPlayState = 'paused';
 })

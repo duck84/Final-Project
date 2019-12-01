@@ -25,10 +25,11 @@ function parseRequest (object, dict, callback){
     i = 1;
     for (index of object["data"]){
         dict['index' + i] = {'name' : index['name'],
-                                  'price' : index['price'],
-                                  'change' :index['change_pct'],
-                                  'day' : index['day_change']
-                                 }
+                             'symbol' : index['symbol'],
+                              'price' : index['price'],
+                              'change' :index['change_pct'],
+                              'day' : index['day_change']
+                            }
         i++
 
     }
@@ -49,6 +50,8 @@ function addIndexesToTicker(dict){
 
     for(index of Object.values(dict)){
         var name = document.createElement('span');
+        name.setAttribute('class', "name");
+        name.setAttribute('id', index['symbol']);
         var price = document.createElement('span');
         var change = document.createElement('span');
         var day = document.createElement('span');
@@ -79,6 +82,7 @@ function addIndexesToTicker(dict){
         ticker.appendChild(change);
 
     }
+    addEvents()
 }
 
 function addStocksToTicker(dict){
@@ -90,6 +94,8 @@ function addStocksToTicker(dict){
 
     for(index of Object.values(dict)){
         var name = document.createElement('span');
+        name.setAttribute('class', "name");
+        name.setAttribute('id', index['symbol']);
         var price = document.createElement('span');
         var change = document.createElement('span');
         var day = document.createElement('span');
@@ -119,9 +125,27 @@ function addStocksToTicker(dict){
         ticker.appendChild(day);
         ticker.appendChild(change);
     }
+    addEvents()
 }
 
 indexRequest.send()
 stockRequest.send()
+
+stockList = document.getElementsByClassName('name');
+
+function addEvents(){
+    stockList = document.getElementsByClassName('name');
+    for (index in stockList){
+        id = stockList[index]['id'];
+        if(id==undefined){
+            continue;
+        }
+        let test = document.getElementById(id);
+        console.log(id)
+        test.addEventListener('click', function(event){
+            window.location.href = './stocks.html' + '#' + this.id;
+        })
+    }
+}
 
 

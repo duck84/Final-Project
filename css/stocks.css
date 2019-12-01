@@ -3,6 +3,12 @@ body{
     color: white;
 }
 
+.placeholder.stock{
+    display: inline;
+    background: white;
+    color: black;
+}
+
 .stock{
     width: 40%;    
     background-color: rgb(24, 23, 23);
@@ -17,6 +23,7 @@ body{
     
     border-radius: 10px;
     padding-bottom : 50px;
+    box-shadow: 0 0 20px white;
 }
 
 .form_div{
@@ -27,6 +34,7 @@ body{
     text-align: center;
     border-radius: 10px;
     opacity:0.8;
+    box-shadow: 0 0 10px white;
   
 }
 
@@ -34,15 +42,19 @@ body{
     padding:10px;
     width : 50%;
     font-size: large;
+    box-shadow: none;
 }
 
-.submit{
+#submit{
     background-color:#293251;
     color:white;
     padding:10px;
     font-size: large;
     cursor: pointer; 
     border-radius: 10px;
+    border-color: white;
+    border-width: 2px 2px 2px 2px;
+    margin-bottom: 5px;
 }
 
 .stocktext{

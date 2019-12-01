@@ -1,5 +1,11 @@
 var api_key = "api_token=RJihFJAd1VKD4VEBDanei82WCaShBSfF6FkMJ02aUbTXQ9d6XW5uoaWKi2Mt";
-var default_symbol = "symbol=NKE&";
+if(window.location.hash.substring(1)){
+    var tickerSymbol =  window.location.hash.substring(1)
+    var default_symbol = "symbol=" + tickerSymbol + "&";
+}else{
+    var default_symbol = "symbol=NKE&";
+}
+
 var api_request = "https://api.worldtradingdata.com/api/v1/history?";
 var dateFrom = 'date_from=2018-11-21&';
 var dateTo = 'date_to=2019-11-21&';
@@ -37,7 +43,6 @@ window.onload = function () {
     });
 
     function addData(data) {
-        console.log(data)
         list = [];
         for (date in data["history"]) {
             list.push([data['history'][date]['close'], date])
@@ -61,13 +66,18 @@ window.onload = function () {
 
 function setInfo() {
     var api_key = "&api_token=RJihFJAd1VKD4VEBDanei82WCaShBSfF6FkMJ02aUbTXQ9d6XW5uoaWKi2Mt";
-    var default_stocks = "symbol=NKE";
+    if(window.location.hash.substring(1)){
+        var tickerSymbol =  window.location.hash.substring(1)
+        var symbolString = "symbol=" + tickerSymbol + "&";
+    }else{
+        var symbolString = "symbol=NKE&";
+    }
     var api_request = "https://api.worldtradingdata.com/api/v1/stock?"
 
     var stockRequest = new XMLHttpRequest();
     var stockDict = {};
 
-    stockRequest.open('Get', api_request + default_stocks + api_key, true)
+    stockRequest.open('Get', api_request + symbolString + api_key, true)
 
     stockRequest.onload = function (callback) {
         var stockData = JSON.parse(this.response);
@@ -99,8 +109,10 @@ function setInfo() {
         var name = document.getElementById('name');
         name.innerHTML = ('Name: \xa0\xa0' + dict['index1']['name'])
 
-        var symbol = document.getElementById('symbol')
-        symbol.innerHTML = ('\xa0\xa0\xa0\xa0 Symbol: \xa0\xa0' + dict['index1']['symbol'])
+        var symbol = document.getElementById('symbol');
+        var symbolText = dict['index1']['symbol'];
+        symbolText = symbolText.replace('^','');
+        symbol.innerHTML = ('\xa0\xa0\xa0\xa0 Symbol: \xa0\xa0' + symbolText)
 
         var price = document.getElementById('price');
         price.innerHTML = ('Price: \xa0\xa0 $' + dict['index1']['price'])
@@ -116,10 +128,31 @@ function setInfo() {
 
     }
 
-    stockRequest.send()
+    
+    stockRequest.send();
+
 }
 
 setInfo();
+
+
+
+function changeStock(){
+    stockString = document.getElementsByTagName("input")[0].value;
+    window.location.href = './stocks.html' + '#' + stockString;
+
+}
+
+function addEvent(){
+    var stockInput = document.getElementsByTagName("input")[0]
+    stockInput.addEventListener("keyup", function(event) {
+    if(event.key !== 'Enter') return;
+    console.log("TEST")
+    event.preventDefault();
+    window.location.href = './stocks.html' + '#' + stockString.value;
+    })
+}
+
 
 
 
