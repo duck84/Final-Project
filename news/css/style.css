@@ -1,3 +1,10 @@
+body
+{
+    background-image: url("/images/background-news.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
 .navbar
 { 
     background:#0025f9;
@@ -118,7 +125,8 @@
     background-color: white;
     opacity: 0.7;
 }
-.news .card{
+.news .card
+{
     box-shadow: 0 0 20px #ccc;
     height:35em;
 }
