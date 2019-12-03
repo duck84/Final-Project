@@ -99,7 +99,15 @@ function addNewsToHTML(){
     var text0 = document.getElementById('text1');
     var link0 = document.getElementById('link1');
 
-    image0.src = urlImage;
+    if(urlImage == null)
+    {
+        image0.src= "images/default-image-entertainment.jpeg";
+    }
+    else
+    {
+        image0.src = urlImage;
+    }
+
     title0.innerHTML = title;
     text0.innerHTML = description;
     link0.href = url;
@@ -109,7 +117,15 @@ function addNewsToHTML(){
     var text1= document.getElementById('text2');
     var link1 = document.getElementById('link2');
 
-    image1.src = urlImage1;
+    if(urlImage1 == null)
+    {
+        image1.src= "images/default-image-entertainment.jpeg";
+    }
+    else
+    {
+        image1.src = urlImage1;
+    }
+
     title_1.innerHTML = title1;
     text1.innerHTML = description1;
     link1.href = url1;
@@ -119,7 +135,15 @@ function addNewsToHTML(){
     var text2= document.getElementById('text3');
     var link2 = document.getElementById('link3')
 
-    image2.src = urlImage2;
+    if(urlImage2 == null)
+    {
+        image2.src= "images/default-image-entertainment.jpeg";
+    }
+    else
+    {
+        image2.src = urlImage2;
+    }
+    
     title_2.innerHTML = title2;
     text2.innerHTML = description2;
     link2.href = url2;
@@ -129,7 +153,16 @@ function addNewsToHTML(){
     var text3= document.getElementById('text4');
     var link3 = document.getElementById('link4')
 
-    image3.src = urlImage3;
+    
+    if(urlImage3 == null)
+    {
+        image3.src= "images/default-image-entertainment.jpeg";
+    }
+    else
+    {
+        image3.src = urlImage3;
+    }
+
     title_3.innerHTML = title3;
     text3.innerHTML = description3;
     link3.href = url3;
@@ -138,8 +171,16 @@ function addNewsToHTML(){
     var title_4= document.getElementById('title5');
     var text4= document.getElementById('text5');
     var link4 = document.getElementById('link5')
+
+    if(urlImage4 == null)
+    {
+        image4.src= "images/default-image-entertainment.jpeg";
+    }
+    else
+    {
+        image4.src = urlImage4;
+    }
     
-    image4.src = urlImage4;
     title_4.innerHTML = title4;
     text4.innerHTML = description4;
     link4.href = url4;
@@ -149,7 +190,15 @@ function addNewsToHTML(){
     var text5= document.getElementById('text6');
     var link5 = document.getElementById('link6');
 
-    image5.src = urlImage5;
+    if(urlImage5 == null)
+    {
+        image5.src= "images/default-image-entertainment.jpeg";
+    }
+    else
+    {
+        image5.src = urlImage5;
+    }
+
     title_5.innerHTML = title5;
     text5.innerHTML = description5;
     link5.href = url5;
@@ -159,7 +208,15 @@ function addNewsToHTML(){
     var text6= document.getElementById('text7');
     var link6 = document.getElementById('link7')
 
-    image6.src = urlImage6;
+    if(urlImage6 == null)
+    {
+        image6.src= "images/default-image-entertainment.jpeg";
+    }
+    else
+    {
+        image6.src = urlImage6;
+    }
+    
     title_6.innerHTML = title6;
     text6.innerHTML = description6;
     link6.href = url6;
@@ -169,7 +226,15 @@ function addNewsToHTML(){
     var text7= document.getElementById('text8');
     var link7 = document.getElementById('link8')
 
-    image7.src = urlImage7;
+    if(urlImage7 == null)
+    {
+        image7.src= "images/default-image-entertainment.jpeg";
+    }
+    else
+    {
+        image7.src = urlImage7;
+    }
+    
     title_7.innerHTML = title7;
     text7.innerHTML = description7;
     link7.href = url7;
@@ -179,10 +244,19 @@ function addNewsToHTML(){
     var text8 = document.getElementById('text9');
     var link8 = document.getElementById('link9')
 
-    image8.src = urlImage8;
+    if(urlImage8 == null)
+    {
+        image8.src= "images/default-image-entertainment.jpeg";
+    }
+    else
+    {
+        image8.src = urlImage8;
+    }
+    
     title_8.innerHTML = title8;
     text8.innerHTML = description8;
-    link8.href = url8;   
+    link8.href = url8;
+    
 }
 
 
