@@ -141,7 +141,6 @@ function addEvents(){
             continue;
         }
         let test = document.getElementById(id);
-        console.log(id)
         test.addEventListener('click', function(event){
             window.location.href = './stocks.html' + '#' + this.id;
         })
