@@ -9,7 +9,6 @@ var description;
 var url;
 var urlImage;
 
-
 request.open('Get',api_request,true)
 
 request.onload= function(){
@@ -107,7 +106,6 @@ function addNewsToHTML(){
         image0.src = urlImage;
     }
     
-    
     title0.innerHTML = title;
     text0.innerHTML = description;
     link0.href = url;
@@ -126,7 +124,6 @@ function addNewsToHTML(){
         image1.src = urlImage1;
     }
 
-    
     title_1.innerHTML = title1;
     text1.innerHTML = description1;
     link1.href = url1;
@@ -181,7 +178,6 @@ function addNewsToHTML(){
         image4.src = urlImage4;
     }
 
-    
     title_4.innerHTML = title4;
     text4.innerHTML = description4;
     link4.href = url4;
@@ -200,7 +196,6 @@ function addNewsToHTML(){
         image5.src = urlImage5;
     }
 
-    
     title_5.innerHTML = title5;
     text5.innerHTML = description5;
     link5.href = url5;
