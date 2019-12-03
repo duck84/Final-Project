@@ -97,8 +97,7 @@ sixthdateElement.innerHTML = "<p>" + dayNames[sixth.getDay()] + "<br>" + monthNa
 $('#submit').click(function() {
     let cityElement = document.querySelector(".city");
     let cityvariable= cityElement.value;
-    let apit= `http://api.openweathermap.org/data/2.5/weather?q=${cityvariable}&appid=${key}`;
-    // console.log(apit);
+    let apit= `https://api.openweathermap.org/data/2.5/weather?q=${cityvariable}&appid=${key}`;
     togglediv.style.display="block";
     
     dateElement.style.display="block";
@@ -183,11 +182,9 @@ function setPosition(position){
     dateElement.style.display="block";
     locationElement.style.display="block";
     forecastdiv.style.display="flex";
-    let api= `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
-    // console.log(api); 
+    let api= `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
     getWeather(api);
-    let api1= `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
-    // console.log(api1);
+    let api1= `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
     getNextDayWeather(api1);
     getThirdDayWeather(api1);
     getFourthDayWeather(api1);
