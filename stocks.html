@@ -9,6 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="logo.png">
     <title>Stocks</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +21,29 @@
 </head>
 
 <body>
+        <div id="navbar">
+                <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-expand-md navbar-expand-xl fixed-top">
+
+                    <a class="navbar-brand" href="index.html"><img src="logo.png" style="height:40px;width:40px;" alt=""><span style="font-weight: bolder; font-style: italic;color:rgb(207, 166, 89) ;">Omnirds</span></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">  
+                    <div class="animated-icon"><span></span><span></span><span></span></div>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">    
+                        <ul class="navbar-nav mr-1">
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-value="weather" href="weather/index.html"><span style="font-weight: bolder;font-size:large">Weather</span></a>
+                            </li> 
+                            <li class="nav-item"> 
+                                <a class="nav-link" data-value="news" href="news/index.html"><span style="font-weight: bolder;font-size:large">News</span></a>
+                            </li> 
+                            <li class="nav-item"> 
+                            <a class="nav-link" data-value="stocks" href="stocks.html"><span style="font-weight: bolder;font-size:large">Stock</span></a>
+                            </li> 
+                        </ul> 
+                    </div>
+                </nav>
+            </div>
     <div class="stock">
         <div class="container">
             <div id="chartContainer" style="height: 300px; width: 100%; border-radius: 10px;"></div>
