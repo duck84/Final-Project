@@ -105,18 +105,20 @@ body
    
 .news
 {
-    margin: 4em 0;
+    margin: 5em 0;
     position: relative; 
 }
 .news h1
 {
-    color: #1100f9;
-    margin: 2em; 
+    color:rgb(117, 87, 32);
+    margin-top: 2.2em; 
+    margin-bottom: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
 }
 .border
 {
     background-color: white;
-    opacity: 0.7;
 }
 .news .card
 {
@@ -129,7 +131,7 @@ body
 }
 .news .card-title
 {
-    color:#1100f9;
+    color:rgb(117, 87, 32);
     
 }
 .news .card-body
