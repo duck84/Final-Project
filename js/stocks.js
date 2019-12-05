@@ -140,6 +140,7 @@ setInfo();
 function changeStock(){
     stockString = document.getElementsByTagName("input")[0].value;
     window.location.href = './stocks.html' + '#' + stockString;
+    location.reload()
 
 }
 
