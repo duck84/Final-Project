@@ -11,6 +11,13 @@ var urlImage;
 
 request.open('Get',api_request,true)
 
+request.onerror = function()
+{
+    
+    window.location.href = "../news/error.html";    
+    
+};
+
 request.onload= function(){
     news=JSON.parse(this.response)
 
